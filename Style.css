@@ -1,0 +1,748 @@
+/*---------------------Fuentes--------------------------------------------*/
+@font-face {
+    font-family: 'YoungFighter';
+    src: url('/Fuentes/YoungFighterTokyoRegular-7BaKw.ttf');
+}
+
+@font-face {
+    font-family: 'GoldSmith';
+    src: url('/Fuentes/The\ Goldsmith_Vintage.ttf');
+}
+
+.radley-regular {
+    font-family: "Radley", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.radley-regular-italic {
+    font-family: "Radley", serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    border:none;
+    outline:none;
+    scroll-behavior:smooth;
+    /*font-family: ;*/
+}
+/*--------------------Colores----------------------------*/
+:root{
+    --bg-color:#2d1f29;
+    --second-bg-color: #bb55ff;
+    --text-color:antiquewhite;
+    --main-color:#9900e0;
+}
+html{
+    font-size:62.5%;
+    overflow-x:hidden;
+}
+
+body{
+    background: url(Imagenes/1015039_damask-purple-wallpapers_1512x966_h.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:var(--text-color);
+}
+
+section{
+    min-height:100vh;
+    padding:10rem 9% 2rem;
+}
+
+.header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:2rem 9%;
+    background-image: url(Imagenes/Header_Background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+}
+
+.logo{
+    height:8rem;
+    cursor:default;
+}
+
+.navbar a{
+    font-size:2.6rem;
+    color: var(--text-color);
+    margin-left:4rem;
+}
+
+/*--------------------------------------------------------Cambia el color del menu al pasar el cursor-------------------------------------------*/
+.navbar a:hover, .navbar a.active{
+    cursor:pointer;
+    background-image: radial-gradient(ellipse 50% 35% at 50% 50%,#48186b, transparent);
+    font-family: "Clip";
+    text-transform: uppercase;
+    text-shadow: 0 0 0.6rem #f9e6ff, 0 0 1.5rem #ba65ff,
+        -0.2rem 0.1rem 1rem #bf65ff, 0.2rem 0.1rem 1rem #bf65ff,
+        0 -0.5rem 2rem #a024ff, 0 0.5rem 3rem #a024ff;
+    animation: shine 2s forwards, flicker 3s infinite;
+}
+
+@keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ba65ff,
+        -0.2rem 0.1rem 1rem #ba65ff, 0.2rem 0.1rem 1rem #ba65ff,
+        0 -0.5rem 2rem #a024ff, 0 0.5rem 3rem #a024ff;
+    }
+    28%,
+    33% {
+    color: #ba65ff;
+    text-shadow: none;
+    }
+    82%,
+    97% {
+    color: #a024ff;
+    text-shadow: none;
+    }
+}
+
+/*-----------------------------------------------------------------Animación más lenta de luces----------------------------------------------
+.flicker:hover {
+    animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker:hover {
+    animation: shine 2s forwards, blink 10s 1s infinite;
+}
+*/
+
+@keyframes shine {
+    0% {
+    color: #56186b;
+    text-shadow: none;
+    }
+    100% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #a024ff,
+        -0.2rem 0.1rem 1rem #a024ff, 0.2rem 0.1rem 1rem #a024ff,
+        0 -0.5rem 2rem #a024ff, 0 0.5rem 3rem #a024ff;
+    }
+}
+
+@keyframes flicker {
+    from {
+    opacity: 1;
+    }
+
+    4% {
+    opacity: 0.9;
+    }
+
+    6% {
+    opacity: 0.85;
+    }
+
+    8% {
+    opacity: 0.95;
+    }
+
+    10% {
+    opacity: 0.9;
+    }
+
+    11% {
+    opacity: 0.922;
+    }
+
+    12% {
+    opacity: 0.9;
+    }
+
+    14% {
+    opacity: 0.95;
+    }
+
+    16% {
+    opacity: 0.98;
+    }
+
+    17% {
+    opacity: 0.9;
+    }
+
+    19% {
+    opacity: 0.93;
+    }
+
+    20% {
+    opacity: 0.99;
+    }
+
+    24% {
+    opacity: 1;
+    }
+
+    26% {
+    opacity: 0.94;
+    }
+
+    28% {
+    opacity: 0.98;
+    }
+
+    37% {
+    opacity: 0.93;
+    }
+
+    38% {
+    opacity: 0.5;
+    }
+
+    39% {
+    opacity: 0.96;
+    }
+
+    42% {
+    opacity: 1;
+    }
+
+    44% {
+    opacity: 0.97;
+    }
+
+    46% {
+    opacity: 0.94;
+    }
+
+    56% {
+    opacity: 0.9;
+    }
+
+    58% {
+    opacity: 0.9;
+    }
+
+    60% {
+    opacity: 0.99;
+    }
+
+    68% {
+    opacity: 1;
+    }
+
+    70% {
+    opacity: 0.9;
+    }
+
+    72% {
+    opacity: 0.95;
+    }
+
+    93% {
+    opacity: 0.93;
+    }
+
+    95% {
+    opacity: 0.95;
+    }
+
+    97% {
+    opacity: 0.93;
+    }
+
+    to {
+    opacity: 1;
+    }
+}
+
+#menu-icon{
+    font-size:3.6rem;
+    color:var(--text-color);
+    display:none;
+}
+
+.home{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background: url(Imagenes/1015039_damask-purple-wallpapers_1512x966_h.jpg);
+}
+
+.home-content h3{
+    font-size:7.2rem;
+    font-weight:700;
+}
+
+.home-content h3:nth-of-type(2){
+    margin-bottom:2rem;
+}
+
+.span{
+    color:var(--main-color);
+}
+
+.home-content h1{
+    font-size:3.2rem;
+    font-weight:700;
+    line-height:1.3;
+}
+
+.social-media a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:4rem;
+    height:4rem;
+    background:transparent;
+    border:0.2rem solid var(--text-color);
+    border-radius:50%;
+    font-size:2rem;
+    color:var(--text-color);
+    margin:3rem 1.5rem 3rem 0;
+    transition:0.5s ease;
+}
+
+.social-media a:hover{
+    background: var(--main-color);
+    color: var(--text-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.btn{
+    display:inline-block;
+    padding:1rem 2.8rem;
+    background:var(--main-color);
+    border-radius:4rem;
+    box-shadow:0 0 1rem var(--main-color);
+    font-size:1.6rem;
+    color:var(--text-color);
+    letter-spacing:0.1rem;
+    font-weight:600;
+    transition: 0.5s ease;
+}
+
+.btn:hover{
+    box-shadow:none;
+}
+
+/*----------------------------------------ACERCA DE--------------------------------------------------*/
+.about{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:2rem;
+    background-image: url(Imagenes/6e0fd69a36ee8bbf9504f3132c79faff.jpg);
+}
+
+.about-img img{
+    width:35vw;
+}
+
+heading{
+    text-align:center;
+    font-size:4.5rem;
+}
+
+.about-content h2{
+    text-align:left;
+    line-height:1.2;
+}
+
+.about-content h3{
+    font-size:2.6rem;
+}
+
+.about-content p{
+    font-size:1.6rem;
+    margin:2rem 0 3rem;
+}
+
+/*------------------------------------------------------Cartas-----------------------------------------------------*/
+
+.cards-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10rem; /* Ajusta el espacio superior según sea necesario */
+    background-image: url(Imagenes/Layout.png);
+    background-position: center;
+}
+
+.card h2 {
+    font-size: 25px;
+    font-weight: bold;
+    background-image: url(Imagenes/banner_titulo.png);
+    background-size:cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color:#271823;
+    padding: 5px;
+    text-align: center;
+}
+
+.Producto-Descripcion{
+    font-size: 19px;
+    margin-bottom: 13px;
+    color:antiquewhite;
+    text-align: center;
+}
+
+.card-container img{
+    width: 25rem;
+    padding:10px;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns: 1fr;
+    justify-content:center ;
+    transition:all 1s ease;
+    transform-style: preserve-3d;
+    position:relative;
+    max-width: 120rem; /* Ajusta el ancho máximo según sea necesario */
+}
+
+.card-front{
+font-family: 'GoldSmith';
+grid-area: 1/1;
+background-image:url(Imagenes/fondo_tarjeta.png);
+backface-visibility: hidden;
+background-size:contain;
+background-position:center center;
+background-repeat:no-repeat;
+margin:0 1.5%;
+padding:30px 20px;
+box-sizing:border-box;
+transform: rotateY(180deg); 
+}
+
+.card-back{
+    font-family: 'GoldSmith';
+    grid-area: 1/1;
+    background-image: url(Imagenes/Fondo_servicios.png);
+    background-size:contain;
+    background-position:center center;
+    background-repeat:no-repeat;
+    margin:0 1.5%;
+    padding:30px 20px;
+    box-sizing:border-box;
+}
+
+.servicios{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    margin:3rem;
+    perspective: 1000px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-around; /* Otra opción: space-between */
+    align-items: center;
+    flex-wrap: wrap; /* Esto permite que las cartas se envuelvan si no caben todas en una fila */
+    flex-direction:row;
+    justify-content: center;
+    text-align: center;
+}
+
+.card:hover .card-container {
+    transform: rotateY(180deg);
+}
+
+.oculto{
+    opacity: 0;
+    position: absolute; /* Permite superponer la imagen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Asegura que la imagen esté por debajo de la lista */
+}
+
+.card-container ul{
+    text-align: center;
+    color: #271823;
+    font-family: 'GoldSmith';
+    font-weight: bold;
+    font-size: 30px;
+    position: relative;
+    justify-content: space-between;
+    position: absolute; /* Permite posicionar la lista encima de la imagen */
+    top: 50%; /* Ajusta la posición verticalmente al centro */
+    left: 50%; /* Ajusta la posición horizontalmente al centro */
+    transform: translate(-50%, -50%); /* Centra la lista completamente */
+    z-index: 2; /* Asegura que la lista esté por encima de la imagen */
+}
+
+.card-container ul li {
+    margin-bottom: 15%; /* Espacio entre cada elemento de la lista */
+    list-style:none;
+}
+
+
+/*---------------------------------------------------PORTAFOLIO-------------------------------------------------*/
+
+.team{
+    background-image: url(Imagenes/Background.png);
+}
+
+.team h2{
+    margin-bottom: 4rem;
+}
+
+.team-container{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    align-items:center;
+    gap:2.5rem;
+}
+
+.team-container .team-box{
+    position:relative;
+    border-radius:2rem;
+    box-shadow:0 0 1rem var(--bg-color);
+    overflow:hidden;
+    display:flex;
+}
+
+.team-box img{
+    width:100%;
+    transition: .5s ease;
+}
+
+.team-box:hover img{
+    transform:scale(1.1);
+}
+
+.team-box .team-layer{
+    position:absolute;
+    bottom: 0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding: 0 4rem;
+    transform: translateY(100%);
+    transition: .5s ease;
+}
+
+.team-box:hover .team-layer{
+    transform: translateY(0);
+}
+
+.team-layer h4{
+    font-size:3rem;
+}
+
+.team-layer p{
+    font-size:1.6rem;
+    margin: .3rem 0 1rem;
+}
+
+.team-layer a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:5rem;
+    height:5rem;
+    background:var(--text-color);
+    border-radius:50%;
+}
+
+.team-layer a i{
+    font-size:2rem;
+    color:var(--second-bg-color);
+}
+
+/*------------------------------------------------------CONTACTO-----------------------------------------------------*/
+
+.contact{
+    background-image: url(Imagenes/Background.png);
+}
+
+.contact h2{
+    margin-bottom:3rem;
+    
+}
+
+.contact form{
+    max-width: 70rem;
+    margin:1rem auto;
+    text-align:center;
+    margin-bottom:3rem
+}
+
+.contact form .input-box{
+    justify-content:space-between;
+}
+
+.contact form .input-box input, .contact form textarea{
+    width:100%;
+    padding:1.5rem;
+    font-size:1.6;
+    color:var(--text-color);
+    background:var(--second-bg-color);
+    border-radius:0.8rem;
+    margin:0.7rem 0;
+}
+
+.contact form .input-box input{
+    width:49%
+}
+
+.contact form textarea{
+    resize:none;
+}
+
+.contact form .btn{
+    margin-top:2rem;
+    cursor:pointer;
+}
+
+/*------------------------------------------------------FOOTER-----------------------------------------------------*/
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    padding:2rem 9%;
+    background: url(Imagenes/Footer.jpg);
+}
+
+.footer-text p{
+    font-size:1.6rem
+}
+
+.footer-iconTop a{
+    display:inline-flex;
+    justify-content: center;
+    align-items:center;
+    padding:0.8rem;
+    background:var(--main-color);
+    border-radius: 0.8rem;
+    transition: 0.5s ease;
+}
+
+.footer-iconTop a:hover{
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.footer-iconTop a i{
+    font-size:2.4rem;
+    color:var(--second-bg-color);
+}
+
+/*------------------------------------------------------------------BREAKPOINTS--------------------------------------*/
+@media (max-width: 1200px){
+    html{
+        font-size:55%;
+    }
+}
+
+@media (max-width: 991px){
+    .header{
+        padding: 2rem 3%;
+    }
+
+    section{
+        padding:10rem 3% 2rem;
+    }
+
+    .services{
+        padding-bottom:7rem;
+    }
+
+    .portafolio{
+        padding-bottom:7rem;
+    }
+
+    .footer{
+        padding:2rem 3%;
+    }
+}
+
+@media (max-width: 768px){
+    #menu-icon{
+        display:block;
+    }
+
+    .navbar{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        padding:1rem 3%;
+        background: var(--bg-color);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        display:none;
+    }
+    
+    .navbar.active{
+        display:block;
+    }
+    
+    .navbar a{
+        display:block;
+        font-size:2rem;
+        margin:3rem 0;
+    }
+    
+    .home{
+        flex-direction:column;
+    }
+
+    .home-content h3{
+        font-size:2.6rem;
+    }
+
+    .home-content h1{
+        font-size:5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+        margin-top:4rem;
+    }
+
+    .about{
+        flex-direction: column-reverse;
+    }
+
+    .about img{
+        width:70vw;
+        margin-top:4rem;
+    }
+
+    .services h2{
+        margin-bottom:3rem;
+    }
+
+    .team h2{
+        margin-bottom:3rem;
+    }
+
+    .team-container{
+        grid-template-columns: repeat(2, 1fr);;
+    }
+}

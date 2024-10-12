@@ -1,0 +1,125 @@
+Entendido, eso suena como un diseño visualmente atractivo y funcional. Podemos abordar esto utilizando HTML, CSS y JavaScript para crear la disposición de las imágenes y los textos, así como para agregar la funcionalidad de desplegar los subtextos y rotar las imágenes al hacer clic.
+
+Aquí tienes un enfoque general de cómo podrías implementar esto:
+
+HTML:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Images</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="center-text">Main Text</div>
+        <div class="images-container">
+            <img src="image1.png" alt="Image 1" class="image">
+            <img src="image2.png" alt="Image 2" class="image">
+            <!-- Agrega las otras imágenes aquí -->
+        </div>
+        <div class="outer-texts">
+            <div class="outer-text">Text 1</div>
+            <div class="outer-text">Text 2</div>
+            <!-- Agrega los otros textos aquí -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+CSS (styles.css):
+
+css
+Copy code
+.container {
+    position: relative;
+    width: 500px; /* Ajusta el tamaño según sea necesario */
+    height: 500px; /* Ajusta el tamaño según sea necesario */
+}
+
+.center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    /* Estilos de texto, como color, tamaño de fuente, etc. */
+}
+
+.images-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.outer-texts {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.outer-text {
+    cursor: pointer;
+    /* Estilos de texto, como color, tamaño de fuente, etc. */
+}
+
+.line {
+    position: absolute;
+    width: 100px; /* Ajusta la longitud de la línea según sea necesario */
+    height: 1px; /* Ajusta el grosor de la línea según sea necesario */
+    background: linear-gradient(to right, white, blue); /* Ajusta los colores según sea necesario */
+    z-index: 1;
+    /* Estilos adicionales, como posición, etc. */
+}
+JavaScript (script.js):
+
+javascript
+Copy code
+const images = document.querySelectorAll('.image');
+const outerTexts = document.querySelectorAll('.outer-text');
+
+// Función para rotar las imágenes aleatoriamente
+function rotateImages() {
+    images.forEach(image => {
+        const rotation = Math.random() * 10 - 5; // Rotación aleatoria entre -5 y 5 grados
+        image.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+    });
+}
+
+// Función para desplegar los subtextos
+function toggleSubtexts() {
+    // Aquí puedes implementar la lógica para desplegar los subtextos al hacer clic
+}
+
+// Agrega eventos de clic a los textos externos
+outerTexts.forEach(outerText => {
+    outerText.addEventListener('click', () => {
+        toggleSubtexts();
+        rotateImages();
+    });
+});
+
+// Agrega evento de clic al texto central
+const centerText = document.querySelector('.center-text');
+centerText.addEventListener('click', () => {
+    toggleSubtexts();
+    rotateImages();
+});
+Este código proporciona un punto de partida para lograr lo que has descrito. Puedes ajustar los estilos y la funcionalidad según tus necesidades específicas y agregar la lógica necesaria para desplegar los subtextos al hacer clic en los textos externos

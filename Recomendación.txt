@@ -1,0 +1,98 @@
+
+¡Claro! Podemos lograr ese efecto utilizando CSS para la animación y JavaScript para detectar el evento de pasar el cursor sobre cada producto y aplicar la rotación.
+
+Primero, necesitaremos agregar un poco de CSS para definir el efecto de volteo y el cuadro de texto que se mostrará al voltear. Luego, usaremos JavaScript para agregar un evento de "hover" a cada elemento de producto y aplicar la rotación cuando el cursor esté sobre él.
+
+Aquí tienes un ejemplo de cómo podrías hacerlo:
+
+HTML:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Temictli</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- Tu código de encabezado aquí -->
+    </header>
+
+    <main>
+        <ul class="Productos">
+            <li class="Producto">
+                <h2>Alebrijes</h2>
+                <img src="Imagenes/Alebrijes.png">
+                <p class="Producto-Descripcion">Traemos las criaturas de tus sueños (o pesadillas) a la vida</p>
+            </li>
+                
+            <li class="Producto">
+                <h2>Cosplay</h2>
+                <img src="Imagenes/Alebrijes.png">
+                <p class="Producto-Descripcion">Aquí creamos el supertraje de tus sueños</p>
+            </li>
+
+            <li class="Producto">
+                <h2>Especialidades</h2>
+                <img src="Imagenes/Alebrijes.png">
+                <p class="Producto-Descripcion">Tu pregunta, ¡nosotros lo hacemos!</p>
+            </li>
+        </ul>
+    </main>
+    <footer>
+        <!-- Tu código de pie de página aquí -->
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+CSS (style.css):
+
+css
+Copy code
+/* Agrega el estilo para el cuadro de texto que se mostrará al voltear */
+.Producto-Descripcion {
+    display: none; /* Ocultamos el cuadro de texto inicialmente */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 200px;
+    text-align: center;
+}
+
+/* Agrega la animación para el volteo */
+.Producto:hover .Producto-Descripcion {
+    display: block;
+}
+JavaScript (script.js):
+
+javascript
+Copy code
+// Seleccionamos todos los elementos con la clase "Producto"
+const productos = document.querySelectorAll('.Producto');
+
+// Iteramos sobre cada elemento para agregar el evento de "hover"
+productos.forEach(producto => {
+    // Agregamos el evento de "mouseenter" para cuando el cursor entre en el producto
+    producto.addEventListener('mouseenter', () => {
+        // Agregamos la clase "hover" para aplicar la rotación
+        producto.classList.add('hover');
+    });
+
+    // Agregamos el evento de "mouseleave" para cuando el cursor salga del producto
+    producto.addEventListener('mouseleave', () => {
+        // Removemos la clase "hover" para quitar la rotación
+        producto.classList.remove('hover');
+    });
+});
+Con este código, al pasar el cursor sobre cada producto, se aplicará una rotación de 180° y se mostrará el cuadro de texto con la descripción del producto. Cuando el cursor salga del producto, la rotación se quitará y el cuadro de texto se ocultará nuevamente. Asegúrate de tener un archivo CSS llamado "style.css" y un archivo JavaScript llamado "script.js" en la misma carpeta que tu archivo HTML
